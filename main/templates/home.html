@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %} 
+{% for var in data %}
+    <p><a href="{% url 'main:SinglePostView' var.id %}">{{ var.name}}</a></p>
+{% endfor %}
+<hr>
+{% endblock content %}
