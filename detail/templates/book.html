@@ -2,6 +2,8 @@
 {% block content %}
 <p>hello</p>
 {% for boo in book %}
-    <p><a href="{{boo.slug}}">{{boo.title}}</a></p>
+{% comment %} slug=boo.slug {% endcomment %}
+    <p><a href="{% url 'detail:BookDetailView' boo.slug %}">{{boo.title}}</a></p>
+    <small>{{ date }}</small><hr>
 {% endfor %}
 {% endblock content %}

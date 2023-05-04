@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('main.urls',namespace='main')),
     path('detail/',include('detail.urls',namespace="detail")),
+    path('Listview/',include('Listview.urls',namespace="Listview")),
 ]

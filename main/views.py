@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView,RedirectView
 from django.shortcuts import get_object_or_404
-from django.utils import timezone
 from django.views.generic.detail import DetailView
+from datetime import datetime
+from django.utils import timezone
 
 from main.models import Post
 
@@ -12,6 +13,7 @@ class HomeTemplateView(TemplateView):
     def get_context_data(self,**kwargs):
         context = super().get_context_data(**kwargs)
         context['data'] = Post.objects.all()
+        context['time'] = datetime.now()
         return context
     
 class PostPreLoadTaskView(RedirectView):
@@ -30,12 +32,6 @@ class SinglePostView(TemplateView):
         context['post'] = get_object_or_404(Post,pk=self.kwargs.get('pk'))  
         return context
     
-class PostDetailView(DetailView):
-    model = Post
-    def get_context_data(self,**kwargs):
-        context = super().get_context_data(**kwargs)
-        context['date'] = timezone.now()
-        return context
     
 # class ArticleCounterRedirectView(RedirectView):
 #     permanent = False

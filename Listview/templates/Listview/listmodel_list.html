@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+<p>List View</p>
+{% for variable in object_list %}
+    <p><a href="{% url 'Listview:ListDetail' variable.id %}">{{variable.name}}</a></p>
+{% endfor %}
+{% endblock content %}

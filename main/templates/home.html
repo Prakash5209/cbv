@@ -2,6 +2,7 @@
 {% block content %} 
 {% for var in data %}
     <p><a href="{% url 'main:SinglePostView' var.id %}">{{ var.name}}</a></p>
+    <small>{{time}}</small>
 {% endfor %}
 <hr>
 {% endblock content %}
